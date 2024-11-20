@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Pacifico', cursive;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       /* font-family: 'MyFancyFont', sans-serif; */
       /* font-family: 'Pacifico', 'Arial', sans-serif; */
       /* font-family: 'Poppins', sans-serif; */
@@ -32,7 +32,7 @@
     #question-container {
       /* background: #fff; */
       background: rgb(70,195,191);
-background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%);
+      background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%);
       /* background: rgb(131,58,180); */
       /* background: linear-gradient(90deg, rgba(131,58,180,1) 10%, rgba(29,83,253,0.819672131147541) 50%, rgba(252,176,69,1) 100%); */
       /* background: rgb(238,174,202);
@@ -44,6 +44,7 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       text-align: left;
       width: 90%;
+      margin-top: 4rem;
       max-width: 600px;
     }
 
@@ -66,15 +67,17 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
     }
 
     #buttons-container {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center buttons */
+  gap: 10px;
+  width: 100%; /* Make sure container takes full width */
+}
 
     .buttons {
       display: flex;
-      width: 380px;
+      /* width: 380px; */
       gap: 10px;
       --b: 5px; /* border thickness */
       --h: 2.5em; /* button height */
@@ -101,6 +104,13 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
       transition: flex 0.4s;
     }
 
+    .buttons button {
+  flex: 1; /* Allow buttons to resize proportionally */
+  max-width: 120px; /* Prevent buttons from being too wide */
+  min-width: 80px; /* Ensure buttons aren't too small */
+  font-size: 14px; /* Adjust font size for smaller screens */
+}
+
     .buttons button + button {
       --_c: #FF003C;
       flex: calc(0.75 + var(--_s, 0));
@@ -125,166 +135,28 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
       font-size: 0.8em;
       vertical-align: super;
     }
-    /* .btn-1,
-    .btn-1 *,
-    .btn-1 :after,
-    .btn-1 :before,
-    .btn-1:after,
-    .btn-1:before {
-      border: 0 solid;
-      box-sizing: border-box; 
-    }
-    .btn-1 {
-      -webkit-tap-highlight-color: transparent;
-      -webkit-appearance: button;
-      background-color: #000;
-      background-image: none;
-      color: #fff;
-      cursor: pointer;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-      font-size: .8em;
-      line-height: 1.5;
-      margin: 0;
-      -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-      padding: 0;
-    }
-    .btn-1:disabled {
-      cursor: default;
-    }
-    .btn-1:-moz-focusring {
-        outline: auto;
-    }
-    .btn-1 svg {
-      display: block;
-      vertical-align: middle;
-    }
-    .btn-1 [hidden] {
-      display: none;
-    }
-    .btn-1 {
-      background: none;
-      border: 2px solid;
-      border-radius: 999px;
-      box-sizing: border-box;
-      color: #000;
-      width: 10rem;
-      display: block;
-      font-weight: 900;
-      -webkit-mask-image: none;
-      padding: 5px 20px;
-      position: relative;
-      text-transform: uppercase;
-    }
-.btn-1:before {
-  background: #fff;
-  border-radius: 999px;
-  content: "";
-  inset: 0;
-  position: absolute;
-  transform: translate(10px, 10px);
-  transition: transform 0.2s;
-  z-index: -1;
-}
-.btn-1:hover:before {
-  transform: translate(0);
-}
-.btn-26,
-.btn-26 *,
-.btn-26 :after,
-.btn-26 :before,
-.btn-26:after,
-.btn-26:before {
-  border: 0 solid;
-  box-sizing: border-box;
-}
-.btn-26 {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
-  background-color: #000;
-  background-image: none;
-  color: #fff;
-  cursor: pointer;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
-    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
-  font-size: 100%;
-  font-weight: 900;
-  line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
-  padding: 0;
-  text-transform: uppercase;
-}
-.btn-26:disabled {
-  cursor: default;
-}
-.btn-26:-moz-focusring {
-  outline: auto;
-}
-.btn-26 svg {
-  display: block;
-  vertical-align: middle;
-}
-.btn-26 [hidden] {
-  display: none;
-}
-.btn-26 {
-  background: none;
-  -webkit-mask-image: none;
-  padding: 1rem 3rem;
-  position: relative;
-}
-.btn-26 span {
-  mix-blend-mode: difference;
-}
-.btn-26:after,
-.btn-26:before {
-  --progress: 0%;
-  background: #fff;
-  -webkit-clip-path: polygon(
-    0 50%,
-    var(--progress) 0,
-    100% 0,
-    calc(100% - var(--progress)) 50%,
-    100% 100%,
-    var(--progress) 100%
-  );
-  clip-path: polygon(
-    0 50%,
-    var(--progress) 0,
-    100% 0,
-    calc(100% - var(--progress)) 50%,
-    100% 100%,
-    var(--progress) 100%
-  );
-  content: "";
-  height: 100%;
+
+    header {
+  position: fixed;
+  top: 0;
   left: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: height 0.4s, transform 0.4s, -webkit-clip-path 0.4s 0.1s;
-  transition: height 0.4s, transform 0.4s, clip-path 0.4s 0.1s;
-  transition: height 0.4s, transform 0.4s, clip-path 0.4s 0.1s,
-    -webkit-clip-path 0.4s 0.1s;
   width: 100%;
-  z-index: -1;
+  padding: 10px 20px;
+  background: #060625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
 }
-.btn-26:after {
-  transform: rotate(180deg) translateY(50%);
+
+.nav {
+  color: #ffffff;
+  text-align: center;
+  padding-left: 1.7rem;
+  text-decoration: none;
+  border-left: 2px solid #ffffff;
 }
-.btn-26:hover:before {
-  --progress: 50%;
-  top: 50%;
-  transform: translateY(-50%) translateX(35%);
-}
-.btn-26:hover:after {
-  --progress: 50%;
-  top: 50%;
-  transform: rotate(180deg) translateY(50%) translateX(35%);
-} */
+
 
 .btn-1 {
   position: relative;
@@ -292,6 +164,7 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
   border-radius: 4em;
   font-size: 16px;
   color: white;
+  /* width: 100%; */
   padding: 0.8em 1.8em;
   cursor:pointer;
   user-select:none;
@@ -314,7 +187,7 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
   border-radius: 4em;
   left: 0;
   top:0;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   opacity: 0;
   transition: all 0.5s;
@@ -334,16 +207,35 @@ background: linear-gradient(90deg, rgba(70,195,191,1) 10%, rgba(29,83,253,0.8196
 .btn-1:active {
   top: 1px;
 }
-    
+
 @media only screen and (max-width: 480px) {
-  #button-container {
-    width: 100%;
+  #buttons-container {
+    flex-direction: row; /* Stack buttons vertically if needed */
+    gap: 5px; /* Reduce gap */
+  }
+
+  .buttons button {
+    flex: none; /* Disable flex for better control */
+    width: 100%; /* Make buttons take full container width */
   }
 }
 
   </style>
 </head>
 <body>
+
+
+  <header class="header">
+    <a href="index.html" class="logo"> CBU NS </a>
+
+
+    <h2> Totoz Collection ! </h2>
+
+    <a href="lab-T3.html" class="nav"> Back </a>
+
+
+  </header>
+
   <div id="question-container">
     <div class="question hidden" id="question-1">
       <h2 style="text-align: center;"> 2023 Test 1 </h2>
